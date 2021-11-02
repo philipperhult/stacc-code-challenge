@@ -47,10 +47,12 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <div class="inputs">
-        <input type="text" name="search" id="search" placeholder="Enter person" value="<%= locals.name %>" />
-        <input type="submit" value="Submit" name="submit" onclick="fetchPerson()" />
-    </div>
+    <form action="/api/result" method="GET">
+        <div class="inputs">
+            <input type="text" name="search" id="search" placeholder="Enter person" value="<%= locals.name %>" required/>
+            <input type="submit" value="Submit" name="submit" onclick="fetchPerson()" />
+        </div>
+    </form> 
     <div class="results" id="app" onchange="addstyle()"></div>
 </body>
 <script>
@@ -63,9 +65,13 @@ function addstyle() {
         document.getElementById('personResults').href='style.css';
     }
 
+function mySubmitFunction() {
+    return false;
+}
+
 function fetchPerson() {
     clearcontent();
-    fetch("http://localhost:3000/persons/result")
+    fetch("http://localhost:3000/api/result")
     //fetch(`https://stacc-code-challenge-2021.azurewebsites.net/api/pep?name=${document.getElementById('search').value}`)
     .then(res => res.json())
     .then(data => {
