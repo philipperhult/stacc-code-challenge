@@ -1,0 +1,14 @@
+body {
+    background-color: #dcdcdc;
+}
+
+input {
+    align-self: center;
+}
+
+.personResults {
+    background-color: gray;
+    padding: 1rem;
+    color: aqua;
+}
+
