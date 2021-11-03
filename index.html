@@ -1,92 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Document</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: 'HK Grotesk', 'Helvetica', sans-serif;
-            background-color: #001f3f;
-            align-items: center;
-        }
-
-        .inputs {
-            padding-top: 100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            
-        }
-
-        .inputs input {
-                    
-            display: inline-block;
-            padding: 10px 15px;
-            font-size: 20px;
-            border-radius: 0;
-            
-                
-        }
-        .results {
-            display: grid;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .personResults {
-            
-            background-color: #dcdcdc;
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        
-    </style>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
+    <div class="header">
+        <h1>KYC-checc</h1>
+    </div>
+    <div class="dropdown">
+        <select name="drop" id="drop">
+            <option value="" disabled selected>Select person or company</option>
+            <option value="Person">Person</option>
+            <option value="Company">Company</option>
+        </select>
+    </div>
     <div class="inputs">
-        <input type="text" name="search" id="search" placeholder="Enter person"/>
-        <input type="submit" value="Submit" name="submit" onclick="fetchPerson()" />
+        <input type="text" name="search" id="search" placeholder="Enter name"/ required>
+    <div class="submitButton">
+        <input type="submit" value="Submit" id="search" name="submit" onclick="fetchPerson()" />
+    </div>
     </div>
     <div class="results" id="app" onchange="addstyle()"></div>
 </body>
-<script>
 
-function clearcontent(elementID) {
-        document.getElementById("app").innerHTML = "";
-    }
-
-function addstyle() {
-        document.getElementById('personResults').href='style.css';
-    }
-
-function fetchPerson() {
-    clearcontent();
-    fetch(`http://localhost:3000/api/result?search=${document.getElementById('search').value}&submit=Submit`)
-    //fetch(`https://stacc-code-challenge-2021.azurewebsites.net/api/pep?name=${document.getElementById('search').value}`)
-    .then(res => res.json())
-    .then(data => {
-        console.log(data);
-        const html = data.hits
-            .map(hit => {
-                return `
-                <div class="personResults"
-                    <p>Name: ${hit.name}</p>
-                    <p>Score: ${hit.score}</p>
-                    <p>ID: ${hit.id}</p>
-                    <p>Date of birth: ${hit.birth_date}</p>
-                </div>
-                `;
-            })
-            .join("");
-        document.querySelector('#app').insertAdjacentHTML("afterbegin", html);
-        addstyle();
-    })
-}
-
-</script>
+<script src="js/script.js"></script>
 
 </html>

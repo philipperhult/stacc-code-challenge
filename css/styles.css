@@ -1,14 +1,80 @@
 body {
-    background-color: #dcdcdc;
+    font-family: 'HK Grotesk', 'Helvetica', sans-serif;
+    background-color: rgb(243, 241, 240);
+    align-items: center;
 }
 
-input {
-    align-self: center;
+.header {
+    background-color: rgb(243, 241, 240);
+    color: rgb(45, 44, 44);
+    font-size: 200%;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputs {
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+    
+}
+
+.dropdown  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.dropdown select {
+    width: 17%;
+    background-color: transparent;
+    color: rgb(45, 44, 44);
+    border: 0;
+    border-bottom: 2px solid gray;
+    padding: 7px 0;
+    margin-right: 155px;   
+    font-size: 1rem;
+}
+
+.inputs input {
+    font-family: inherit;
+    border: 0;
+    border-bottom: 2px solid gray;
+    outline: 0;
+    font-size: 1.3rem;
+    color: rgb(45, 44, 44);
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;  
+    margin-right: 20px;     
+}
+
+.results {
+    display: grid;
+    justify-content: center;
+    align-items: center;
 }
 
 .personResults {
-    background-color: gray;
+    background-color: rgb(173, 54, 43);
+    color: #E3E2DF;
     padding: 1rem;
-    color: aqua;
+    margin-bottom: 1rem;
+    border-radius: 25px;
 }
 
+.submitButton input {
+    background-color: rgb(173, 54, 43);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
